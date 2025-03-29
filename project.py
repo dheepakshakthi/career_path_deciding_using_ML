@@ -67,7 +67,7 @@ def predict_career(part_time_job, absence_days, extracurricular_activities, week
     predicted_career = label_encoder.inverse_transform([predicted_label])[0]
     
     return predicted_career
-'''
+
 print("Enter your details to get your best fit career:")
 part_time_job_nb = int(input("Do you have a part-time job? (1 for Yes, 0 for No): "))
 if part_time_job_nb == 1:
@@ -93,7 +93,7 @@ geography_score = int(input("Geography score: "))
 prediction = predict_career(part_time_job, absence_days, extracurricular_activities, weekly_self_study_hours,
                                 math_score, history_score, physics_score, chemistry_score, 
                                 biology_score, english_score, geography_score)
-print(prediction)'''
+print(prediction)
 
 #confusion matrix
 conf_matrix = confusion_matrix(y_test, y_pred)
@@ -109,24 +109,22 @@ sns.histplot(y_test, color="blue", label="Actual", alpha=0.5, bins=20)
 sns.histplot(y_pred, color="red", label="Predicted", alpha=0.5, bins=20)
 plt.legend()
 plt.title("Distribution of Actual vs Predicted Career Aspirations")
-#plt.show()
 
 # Feature importance visualization
 feature_importances = model.feature_importances_
 feature_names = X.columns
 
+#Histogram of feature importances
 plt.figure(figsize=(12, 6))
 sns.barplot(x=feature_importances, y=feature_names)
 plt.title("Feature Importance in Career Aspiration Prediction")
 plt.xlabel("Importance Score")
 plt.ylabel("Features")
-#plt.show()
 
 # correlation heatmap
 plt.figure(figsize=(10, 6))
 sns.heatmap(df.corr(), annot=True, cmap="coolwarm", fmt=".2f")
 plt.title("Feature Correlation Heatmap")
-#plt.show()
 
 #scatter plot for actual vs predicted values
 plt.figure(figsize=(10, 6))
