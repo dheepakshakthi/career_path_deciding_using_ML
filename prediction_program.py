@@ -35,22 +35,6 @@ y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print("accuracy of the model:", accuracy)
 
-# Calculate evaluation metrics
-mae = mean_absolute_error(y_test, y_pred)
-mse = mean_squared_error(y_test, y_pred)
-rmse = np.sqrt(mse)
-r2 = r2_score(y_test, y_pred)
-
-# Print results
-print(f"MAE: {mae}")
-print(f"MSE: {mse}")
-print(f"RMSE: {rmse}")
-print(f"RÂ² Score: {r2}")
-if mse < np.var(y_test):
-    print("The model is performing well.")
-else:
-    print("The model is not performing well.")
-
 
 def predict_career(part_time_job, absence_days, extracurricular_activities, weekly_self_study_hours, 
                    math_score, history_score, physics_score, chemistry_score, 
